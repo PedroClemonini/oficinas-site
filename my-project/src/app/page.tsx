@@ -28,7 +28,7 @@ export default function Home() {
         actionText="Ver todas as publicações"
         actionUrl="/noticias"
       />
-      <Footer />
+      
       </main>
 
   );
