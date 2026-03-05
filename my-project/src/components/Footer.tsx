@@ -48,9 +48,9 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Especialidades</h3>
             <ul className="flex flex-col gap-3 text-sm">
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Automação Industrial</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Internet das Coisas</a></li>
-              <li><a href="#" className="hover:text-blue-400 transition-colors">Redes e Infraestrutura</a></li>
+              <li><a href="#" className="hover:text-blue-400 transition-colors">Análise de Falhas</a></li>
+              <li><a href="#" className="hover:text-blue-400 transition-colors">Automação e IoT</a></li>
+              <li><a href="#" className="hover:text-blue-400 transition-colors">Robótica e Embarcados</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Software</a></li>
             </ul>
           </div>
