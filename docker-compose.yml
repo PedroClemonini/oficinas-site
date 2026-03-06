@@ -1,19 +1,21 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: nextjs-app
+    user: root # Força o container a ter poder de escrita interno
     ports:
       - "3000:3000"
     environment:
       - DATABASE_URL=postgresql://devuser:devpassword@db:5432/next_db?schema=public
+      - NODE_ENV=development
     depends_on:
       - db
     volumes:
-    - .:/app
-    - /app/node_modules
-      
+      - .:/app
+      # Estes volumes abaixo NÃO sincronizam com seu Mac, ficam só no Docker
+      - /app/node_modules
+      - /app/.next
+      - /app/prisma/client
 
   # Banco de Dados
   db:
