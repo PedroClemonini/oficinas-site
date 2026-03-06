@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-app
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://devuser:devpassword@db:5432/next_db?schema=public
+    depends_on:
+      - db
+    volumes:
+    - .:/app
+    - /app/node_modules
+      
+
+  # Banco de Dados
+  db:
+    image: postgres:15-alpine
+    container_name: nextjs-db
+    restart: always
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: next_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

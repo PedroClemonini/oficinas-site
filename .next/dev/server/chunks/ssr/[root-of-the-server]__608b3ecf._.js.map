@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///Users/pedroclemonini/Desktop/site-oficinas/src/app/portfolio/page.tsx"],"sourcesContent":["import React from 'react';\n// import { Logo } from '@/components'; // Descomente se quiser usar o logo aqui também\n\nconst Portfolio = () => {\n  return ( \n    <main className=\"w-full min-h-screen bg-gray-50\"></main>\n\n  );\n};\n\nexport default Portfolio;  "],"names":[],"mappings":";;;;;;AACA,uFAAuF;AAEvF,MAAM,YAAY;IAChB,qBACE,8OAAC;QAAK,WAAU;;;;;;AAGpB;uCAEe"}}]
+}
