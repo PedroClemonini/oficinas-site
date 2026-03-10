@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#002847] text-gray-300 py-12 border-t-4 border-blue-500">
+    <footer className="bg-white text-gray-300 py-12 border-t-4 border-blue-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Grid principal do Footer */}
@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             {/* Se for usar o seu MyLogo aqui, lembre-se de mudar a classe dele para 'text-white' para aparecer no fundo escuro */}
             <div className="w-32 mb-4">
-                <Logo className="text-white" />
+                <Logo className="text-gray-300" />
             </div>
             <p className="text-sm leading-relaxed mt-2">
               Especialistas em infraestrutura de TI, redes de alta performance e virtualização. Entregamos estabilidade e segurança para o seu negócio.
@@ -34,7 +34,7 @@ const Footer = () => {
 
           {/* Coluna 2: Navegação Rápida */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Navegação</h3>
+            <h3 className="text-gray-300 font-semibold text-lg mb-4">Navegação</h3>
             <ul className="flex flex-col gap-3 text-sm">
               <li><a href="#" className="hover:text-blue-400 transition-colors">Início</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Sobre o Laboratório</a></li>
@@ -46,7 +46,7 @@ const Footer = () => {
 
           {/* Coluna 3: Especialidades / Serviços */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Especialidades</h3>
+            <h3 className="text-gray-300 font-semibold text-lg mb-4">Especialidades</h3>
             <ul className="flex flex-col gap-3 text-sm">
               <li><a href="#" className="hover:text-blue-400 transition-colors">Análise de Falhas</a></li>
               <li><a href="#" className="hover:text-blue-400 transition-colors">Automação e IoT</a></li>
@@ -57,7 +57,7 @@ const Footer = () => {
 
           {/* Coluna 4: Contato */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Fale Conosco</h3>
+            <h3 className="text-gray-300 font-semibold text-lg mb-4">Fale Conosco</h3>
             <ul className="flex flex-col gap-4 text-sm">
               <li className="flex items-start gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-blue-500 shrink-0 mt-0.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>

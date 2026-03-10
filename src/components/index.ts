@@ -5,4 +5,8 @@ export * from './CarouselMenu';
 export * from './Footer';
 export * from './CoordinatorsSection';
 export * from './ArmSection';
+export * from './Providers';
+export * from './ConnectedAccounts';
+export * from './PasswordForm';
+export * from './EditableProfile';
 export { default as Logo } from './Logo';

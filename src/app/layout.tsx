@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header"
 import Footer from "@/components/Footer";
-
+import { Providers } from "@/components/Providers"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,10 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
-        <Header />
+      <body className={`${poppins.variable} antialiased`}>
+       <Providers>
+          <Header />
+          </Providers>
         {children}
         <Footer />
       </body>

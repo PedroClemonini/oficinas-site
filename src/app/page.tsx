@@ -15,7 +15,6 @@ const servicesData = [
 ];
 
 
-
 export default function Home() {
   return (
  
