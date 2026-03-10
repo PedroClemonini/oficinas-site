@@ -19,6 +19,7 @@ model User {
   sessions      Session[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+  news          News[]
 }
 
 // Tabela de Contas OAuth (Google, GitHub, etc)
@@ -48,4 +49,19 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model News {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique // URL amigável (ex: /noticias/minha-primeira-noticia)
+  resume    String?  // Um breve resumo para o card de listagem
+  content   String   @db.Text // O corpo da notícia em Markdown puro
+  published Boolean  @default(false) // Permite salvar como rascunho
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id]) // Chave estrangeira
 }
