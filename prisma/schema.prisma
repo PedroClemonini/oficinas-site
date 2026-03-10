@@ -58,7 +58,7 @@ model News {
   resume    String?  // Um breve resumo para o card de listagem
   content   String   @db.Text // O corpo da notícia em Markdown puro
   published Boolean  @default(false) // Permite salvar como rascunho
-  
+  coverImage String?  //
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   

@@ -3,7 +3,8 @@ import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { User, ShieldCheck, Calendar, KeyRound, Link as LinkIcon } from "lucide-react"
 import { EditableProfile,PasswordForm, ConnectedAccounts } from "@/components"
-
+import Link from "next/link"
+import { PlusCircle } from "lucide-react"
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
@@ -40,6 +41,16 @@ export default async function DashboardPage() {
             </div>
           </div>
         </section>
+
+        <div className="flex justify-end mb-6">
+  <Link 
+    href="/dashboard/nova-noticia" 
+    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center gap-2 shadow-lg shadow-indigo-500/20"
+  >
+    <PlusCircle size={20} />
+    Escrever Nova Notícia
+  </Link>
+</div>
 
         <section className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl">
         <div className="flex items-center gap-2 mb-6">
