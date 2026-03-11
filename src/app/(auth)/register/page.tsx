@@ -24,26 +24,26 @@ export default function RegisterPage() {
           <input 
             name="name" 
             placeholder="Nome Completo" 
-            className="w-full p-3 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-600" 
+            className="w-full p-3 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-brand-500 outline-none transition-all placeholder:text-slate-600" 
             required 
           />
           <input 
             name="email" 
             type="email" 
             placeholder="Email" 
-            className="w-full p-3 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-600" 
+            className="w-full p-3 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-brand-500 outline-none transition-all placeholder:text-slate-600" 
             required 
           />
           <input 
             name="password" 
             type="password" 
             placeholder="Crie uma Senha" 
-            className="w-full p-3 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-indigo-500 outline-none transition-all placeholder:text-slate-600" 
+            className="w-full p-3 rounded-xl bg-slate-950 text-white border border-slate-800 focus:border-brand-500 outline-none transition-all placeholder:text-slate-600" 
             required 
           />
           <button 
             type="submit" 
-            className="w-full py-3 mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all active:scale-95 shadow-lg shadow-indigo-500/20"
+            className="w-full py-3 mt-2 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl transition-all active:scale-95 shadow-lg shadow-brand-500/20"
           >
             Cadastrar com Email
           </button>

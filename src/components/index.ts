@@ -9,4 +9,5 @@ export * from './Providers';
 export * from './ConnectedAccounts';
 export * from './PasswordForm';
 export * from './EditableProfile';
+export * from './NewsForm';
 export { default as Logo } from './Logo';

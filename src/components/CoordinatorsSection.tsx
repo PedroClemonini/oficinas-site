@@ -36,48 +36,57 @@ const coordinators = [
 
 export function CoordinatorsSection() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Cabeçalho da Seção - Centralizado para combinar com o grid */}
-        <div className="mb-20 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Nossa Coordenação
-          </h2>
-          <p className="mt-4 text-lg text-slate-500 font-medium max-w-2xl mx-auto">
-            Conheça os especialistas à frente da nossa infraestrutura e tecnologia.
-          </p>
-        </div>
-
-        {/* Grid de Coordenadores */}
-        <div className="flex flex-wrap justify-center gap-12 lg:gap-8">
-          {coordinators.map((person) => (
-            <div key={person.name} className="group flex flex-col items-center text-center">
-              {/* Container da Imagem - Agora com largura definida para o grid centralizar */}
-              <div className="relative aspect-square w-full max-w-[200px] overflow-hidden rounded-2xl bg-slate-100 mb-6 shadow-sm border border-slate-100">
-                <Image
-                  src={person.image}
-                  alt={person.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
-              {/* Informações Centralizadas */}
-              <div className="max-w-[220px]">
-                <h3 className="text-[15px] font-bold text-slate-900 tracking-tight">
-                  {person.name}
-                </h3>
-                <p className="text-[11px] font-bold text-brand-light uppercase tracking-[0.1em] mt-1.5">
-                  {person.role}
-                </p>
-                <p className="mt-4 text-[13px] text-slate-500 leading-relaxed font-medium">
-                  {person.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+  /* 1. bg-white -> bg-app-bg | transição suave para o toggle */
+  <section className="py-24 bg-app-bg transition-colors duration-300">
+    <div className="max-w-7xl mx-auto px-6">
+      
+      {/* Cabeçalho da Seção - text-slate-900 -> text-app-fg */}
+      <div className="mb-20 text-center">
+        <h2 className="text-3xl font-bold tracking-tight text-app-fg sm:text-4xl">
+          Nossa Coordenação
+        </h2>
+        <p className="mt-4 text-lg text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed">
+          Conheça os especialistas à frente da nossa infraestrutura e tecnologia.
+        </p>
       </div>
-    </section>
-  )
+
+      {/* Grid de Coordenadores */}
+      <div className="flex flex-wrap justify-center gap-12 lg:gap-16">
+        {coordinators.map((person) => (
+          <div key={person.name} className="group flex flex-col items-center text-center max-w-[240px]">
+            
+            {/* Container da Imagem - bg-slate-100 -> bg-card-bg | border-slate-100 -> border-card-border */}
+            <div className="relative aspect-square w-full max-w-[200px] overflow-hidden rounded-3xl bg-card-bg mb-6 shadow-xl border border-card-border transition-all duration-300 group-hover:border-brand-500/50 group-hover:shadow-brand-500/10">
+              <Image
+                src={person.image}
+                alt={person.name}
+                fill
+                sizes="200px"
+                className="object-cover transition-transform duration-500 group-hover:scale-110 dark:brightness-90"
+              />
+            </div>
+
+            {/* Informações Centralizadas */}
+            <div className="px-2">
+              <h3 className="text-[16px] font-extrabold text-app-fg tracking-tight leading-snug">
+                {person.name}
+              </h3>
+              {/* text-brand-light -> brand-500 (dinâmico) */}
+              <p className="text-[11px] font-bold text-brand-600 dark:text-brand-400 uppercase tracking-[0.15em] mt-2">
+                {person.role}
+              </p>
+              
+              {/* Linha decorativa sutil que aparece no hover */}
+              <div className="h-0.5 w-8 bg-brand-500/20 mx-auto my-4 group-hover:w-12 transition-all" />
+              
+              <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                {person.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)
 }

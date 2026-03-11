@@ -3,7 +3,11 @@ import React from 'react';
 
 const Portfolio = () => {
   return ( 
-    <main className="w-full min-h-screen bg-gray-50"></main>
+    /* Usamos bg-app-bg para respeitar o ThemeToggle */
+    <main className="w-full min-h-screen bg-app-bg text-app-fg py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto">
+        </div>
+        </main>
 
   );
 };

@@ -1,34 +1,51 @@
 import Image from "next/image";
 import { Banner } from "@/components";
 import CarouselMenu from "@/components/CarouselMenu";
-import Footer from "@/components/Footer";
+import { prisma } from "@/lib/prisma";
 
-const newsData = [
-  { id: 1, title: 'Nova versão do Proxmox VE...', image: 'link-da-imagem.jpg' },
-  { id: 2, title: 'Atualização do Docker', image: 'link-da-imagem.jpg' },
-];
+// Transformamos o componente em async para buscar os dados
+export default async function Home() {
+  
+  // 1. Buscamos as últimas 6 notícias publicadas no servidor
+  const latestNews = await prisma.news.findMany({
+    where: { published: true },
+    orderBy: { createdAt: 'desc' },
+    take: 6,
+    select: {
+      id: true,
+      title: true,
+      coverImage: true, // Certifique-se que o campo no banco é coverImage
+      slug: true
+    }
+  });
 
-// Dados dos serviços (mesmo formato!)
-const servicesData = [
-  { id: 10, title: 'Consultoria em Redes', image: 'link-da-imagem.jpg' },
-  { id: 11, title: 'Infraestrutura Cloud', image: 'link-da-imagem.jpg' },
-];
+  // 2. Formatamos os dados para o padrão que o CarouselMenu espera
+  const carouselItems = latestNews.map(news => ({
+    id: news.id,
+    title: news.title,
+    image: news.coverImage || '/default-news.jpg',
+    slug: news.slug || ""
+  }));
 
-
-export default function Home() {
   return (
- 
-     <main>
-
-      <Banner />
-      <CarouselMenu 
-        title="Últimas notícias" 
-        items={newsData} 
-        actionText="Ver todas as publicações"
-        actionUrl="/noticias"
-      />
+    /* bg-app-bg e text-app-fg garantem que o Dark Mode funcione aqui também */
+    <main className="min-h-screen bg-app-bg text-app-fg transition-colors duration-300">
       
-      </main>
+      {/* Seção Hero/Banner */}
+      <Banner />
 
+      {/* Carrossel de Notícias Reais */}
+      <div className="py-8">
+        <CarouselMenu 
+          title="Últimas notícias" 
+          items={carouselItems} 
+          actionText="Ver todas as publicações"
+          actionUrl="/noticias"
+        />
+      </div>
+      
+      {/* Se quiser adicionar outras seções aqui futuramente */}
+      
+    </main>
   );
 }

@@ -1,37 +1,74 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
+  /* Escala customizada da Brand baseada em #00a1d3 */
+  --color-brand-50: #f0faff;
+  --color-brand-100: #e0f5fe;
+  --color-brand-200: #b9e9fe;
+  --color-brand-300: #7cd7fd;
+  --color-brand-400: #36bffa;
+  --color-brand-500: #00a1d3; /* Sua Cor Principal */
+  --color-brand-600: #0081a9;
+  --color-brand-700: #006686;
+  --color-brand-800: #005671;
+  --color-brand-900: #003d6a; /* Seu Navy Institucional */
+  --color-brand-950: #002642;
+
+  /* Atalho para usar apenas 'brand' ou 'brand-dark' */
+  --color-brand: var(--color-brand-500);
+  --color-brand-dark: var(--color-brand-900);
+
+  /* Variáveis de interface */
+  --color-app-bg: var(--background);
+  --color-app-fg: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
   
-  --color-brand-light: #02a1d3;
-  --color-brand-dark: #004571;
-  --color-text-base: #f8fafc;      /* Para textos longos/parágrafos */
-  --color-text-title: #ffffff;     /* Para H1, H2, H3 */
-  --color-text-muted: #94a3b8;     /* Para textos secundários/legendas */
-
-  /* Fontes */
---font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-sans: 'Inter', ui-sans-serif, system-ui;
 }
 
+/* 1. Definição Base (Light Mode) */
 :root {
-  --background: #ffffff;
-  --foreground: #02a1d3; /* Removi o '#' extra que estava aqui */
+  --background: #f8fafc; 
+  --foreground: #020617;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff; /* Ajustei para um dark real */
-    --foreground: #02a1d3;
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --card-bg: #0f172a;
+  --card-border: #1e293b;
+}
+
+/* 3. Aplicação no Body */
+@layer base {
+  body {
+    @apply bg-app-bg text-app-fg transition-colors duration-300;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-body {
-  font-family: var(--font-sans);
-  letter-spacing: -0.02em; 
-  -webkit-font-smoothing: antialiased;
-  
-  background: var(--background);
-  color: var(--foreground);
+/* Ajuste do Typography para o Dark Mode */
+.dark .prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-links: #6366f1; /* brand 500 para links no dark */
+}
+
+.prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
+  --tw-prose-bold: var(--foreground);
+  --tw-prose-counters: var(--foreground);
+  --tw-prose-bullets: var(--foreground);
+}
+
+/* E no modo dark ele inverte */
+.dark .prose {
+  --tw-prose-body: var(--foreground);
+  --tw-prose-headings: var(--foreground);
 }
